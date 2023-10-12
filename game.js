@@ -18,11 +18,13 @@ const scissors = document.querySelector("#scissors");
 const rock = document.querySelector('#rock');
 const restart = document.querySelector('#restart')
 
+// Choice
 function game(){
     playRound(event.target.textContent,getComputerChoice())}
 
+// Start & restart the game 
 restart.addEventListener('click', reStart)
-    
+  
 function reStart(){
     restart.textContent = 'Start';
     playerScore = 0;
@@ -37,7 +39,7 @@ function reStart(){
     rock.addEventListener('click', game);
     scissors.addEventListener('click', game)}
 
-
+// Game code
 function playRound(playerSelection, computerSelection) {
     
     const resultStatus = document.querySelector('#resultStatus');
@@ -71,7 +73,7 @@ function playRound(playerSelection, computerSelection) {
     playerTotalScore.textContent = `Player Scores: ${playerScore}`;
     computerTotalScore.textContent = `Computer Scores: ${computerScore}`;
 
-    //Final Result
+    //Final Result & End game
     if (playerScore === 5 || computerScore ===5){
         restart.textContent = 'Restart';
         paper.removeEventListener('click', game);
